@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -8,11 +8,10 @@
 		<version>3.3.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.clinicamedica</groupId>
-	<artifactId>ApiClinicaMedica</artifactId>
+	<groupId>br.com.gerenciadordeprodutos</groupId>
+	<artifactId>ApiCLinicaMedica</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>Clinica Medica</name>
+	<name>Gerenciador de Produtos</name>
 	<description>API Backend para o Sistema Clinica Medica</description>
 	<url/>
 	<licenses>
@@ -49,11 +48,6 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
