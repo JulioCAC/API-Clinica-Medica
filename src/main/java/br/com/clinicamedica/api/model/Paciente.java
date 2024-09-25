@@ -1,12 +1,12 @@
 package br.com.clinicamedica.api.model;
 
-import br.com.clinicamedica.api.enums.PlanoDeSaudeEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,14 +22,16 @@ public class Paciente implements Serializable {
     @Column(name = "nome", nullable = false, length = 100)
     private String nome;
 
-    @Column(name = "email", nullable = false, length = 100)
-    private String email;
-
     @Column(name = "cpf", nullable = false, unique = true, length = 11)
     private String cpf;
 
-    @Column(name = "plano_de_saude")
-    private PlanoDeSaudeEnum planoDeSaude;
+    @Column(name = "email", nullable = false, unique = true, length = 100)
+    private String email;
 
+    @Column(name = "telefone", length = 11)
+    private String telefone;
+
+    @Column(name = "data_Nascimento")
+    private LocalDate dataNascimento;
 
 }

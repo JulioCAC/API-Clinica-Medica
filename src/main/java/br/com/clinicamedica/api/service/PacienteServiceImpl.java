@@ -21,15 +21,17 @@ public class PacienteServiceImpl implements PacienteService {
     public PacienteCriadoResponse create(CriarPacienteRequest criarPacienteRequest) {
         Paciente paciente = new Paciente();
         paciente.setNome(criarPacienteRequest.nome());
-        paciente.setEmail(criarPacienteRequest.email());
         paciente.setCpf(criarPacienteRequest.cpf());
-        paciente.setPlanoDeSaude(criarPacienteRequest.planoDeSaude());
+        paciente.setEmail(criarPacienteRequest.email());
+        paciente.setTelefone(criarPacienteRequest.telefone());
+        paciente.setDataNascimento(criarPacienteRequest.dataNascimento());
+
 
         Paciente pacienteCriado = pacienteRepository.save(paciente);
 
         return new PacienteCriadoResponse(
                 "Paciente criado com sucesso",
-                 paciente.getId()
+                 pacienteCriado.getId()
         );
     }
 
@@ -51,9 +53,11 @@ public class PacienteServiceImpl implements PacienteService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Paciente não encontrado"));
 
         pacienteExistente.setNome(criarPacienteRequest.nome());
-        pacienteExistente.setEmail(criarPacienteRequest.email());
         pacienteExistente.setCpf(criarPacienteRequest.cpf());
-        pacienteExistente.setPlanoDeSaude(criarPacienteRequest.planoDeSaude());
+        pacienteExistente.setEmail(criarPacienteRequest.email());
+        pacienteExistente.setTelefone(criarPacienteRequest.telefone());
+        pacienteExistente.setDataNascimento(criarPacienteRequest.dataNascimento());
+
 
         return pacienteRepository.save(pacienteExistente);
 
