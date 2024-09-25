@@ -65,6 +65,8 @@ public class PacienteServiceImpl implements PacienteService {
 
     @Override
     public void deleteById(Long id) {
-        pacienteRepository.deleteById(id);
+        Paciente pacienteExistente = pacienteRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Paciente não encontrado"));
+        pacienteRepository.deleteById(pacienteExistente.getId());
     }
 }

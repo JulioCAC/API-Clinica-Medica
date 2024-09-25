@@ -12,7 +12,7 @@ public record CriarMedicoRequest(
         @Size(min = 2, max = 100, message = "O nome deve ter entre 2 e 100 caracteres")
         String nome,
 
-        @CPF(message = "CPF inválido")
+        @Size(min = 5, max = 8, message = "O CRM deve ter entre 5 e 8 dígitos")
         String crm,
 
         @NotNull(message = "A especialidade é obrigatória")
