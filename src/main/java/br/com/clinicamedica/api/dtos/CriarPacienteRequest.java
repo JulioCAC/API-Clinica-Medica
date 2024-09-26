@@ -23,6 +23,8 @@ public record CriarPacienteRequest(
         String telefone,
 
         @Past(message = "A data de nascimento deve ser anterior à data atual.")
-        LocalDate dataNascimento
+        LocalDate dataNascimento,
+
+        EnderecoDTO endereco
 ) {
 }

@@ -2,6 +2,7 @@ package br.com.clinicamedica.api.service;
 
 import br.com.clinicamedica.api.dtos.CriarPacienteRequest;
 import br.com.clinicamedica.api.dtos.PacienteCriadoResponse;
+import br.com.clinicamedica.api.model.Endereco;
 import br.com.clinicamedica.api.model.Paciente;
 import br.com.clinicamedica.api.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,24 @@ public class PacienteServiceImpl implements PacienteService {
 
     @Override
     public PacienteCriadoResponse create(CriarPacienteRequest criarPacienteRequest) {
+        Endereco endereco = new Endereco(
+                null,
+                criarPacienteRequest.endereco().logradouro(),
+                criarPacienteRequest.endereco().numero(),
+                criarPacienteRequest.endereco().complemento(),
+                criarPacienteRequest.endereco().bairro(),
+                criarPacienteRequest.endereco().cidade(),
+                criarPacienteRequest.endereco().estado(),
+                criarPacienteRequest.endereco().pais(),
+                criarPacienteRequest.endereco().cep()
+        );
         Paciente paciente = new Paciente();
         paciente.setNome(criarPacienteRequest.nome());
         paciente.setCpf(criarPacienteRequest.cpf());
         paciente.setEmail(criarPacienteRequest.email());
         paciente.setTelefone(criarPacienteRequest.telefone());
         paciente.setDataNascimento(criarPacienteRequest.dataNascimento());
+        paciente.setEndereco(endereco);
 
 
         Paciente pacienteCriado = pacienteRepository.save(paciente);
