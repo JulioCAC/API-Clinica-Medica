@@ -71,6 +71,16 @@ public class PacienteServiceImpl implements PacienteService {
         pacienteExistente.setTelefone(criarPacienteRequest.telefone());
         pacienteExistente.setDataNascimento(criarPacienteRequest.dataNascimento());
 
+        Endereco enderecoExistente = pacienteExistente.getEndereco();
+        enderecoExistente.setLogradouro(criarPacienteRequest.endereco().logradouro());
+        enderecoExistente.setNumero(criarPacienteRequest.endereco().numero());
+        enderecoExistente.setComplemento(criarPacienteRequest.endereco().complemento());
+        enderecoExistente.setBairro(criarPacienteRequest.endereco().bairro());
+        enderecoExistente.setCidade(criarPacienteRequest.endereco().cidade());
+        enderecoExistente.setEstado(criarPacienteRequest.endereco().estado());
+        enderecoExistente.setPais(criarPacienteRequest.endereco().pais());
+        enderecoExistente.setCep(criarPacienteRequest.endereco().cep());
+
 
         return pacienteRepository.save(pacienteExistente);
 
