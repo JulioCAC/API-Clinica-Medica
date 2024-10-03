@@ -1,11 +1,6 @@
 package br.com.clinicamedica.api.dtos;
 
-import br.com.clinicamedica.api.enums.EspecialidadeEnum;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
-import org.hibernate.validator.constraints.br.CPF;
+import jakarta.validation.constraints.*;
 
 public record CriarMedicoRequest(
 
@@ -15,8 +10,8 @@ public record CriarMedicoRequest(
         @Size(min = 5, max = 8, message = "O CRM deve ter entre 5 e 8 dígitos")
         String crm,
 
-        @NotNull(message = "A especialidade é obrigatória")
-        EspecialidadeEnum especialidade,
+        @NotBlank(message = "A especialidade é obrigatória")
+        String especialidade,
 
         @Email(message = "Email inválido")
         String email,

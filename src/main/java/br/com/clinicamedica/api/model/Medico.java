@@ -1,6 +1,5 @@
 package br.com.clinicamedica.api.model;
 
-import br.com.clinicamedica.api.enums.EspecialidadeEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,8 +25,7 @@ public class Medico implements Serializable {
     private String crm;
 
     @Column(name = "especialidade", nullable = false, length = 50)
-    @Enumerated(EnumType.STRING)
-    private EspecialidadeEnum especialidade;
+    private String especialidade;
 
     @Column(name = "email", nullable = false, length = 100)
     private String email;
